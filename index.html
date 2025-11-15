@@ -162,77 +162,89 @@
         </div>
     </section>
 
-    <div id="rating-box" style="text-align:center; margin:40px 0;">
-        <h2>Rate Our Service</h2>
+    <!-- ⭐ RATING BOX ⭐ -->
+<div id="rating-box" style="text-align:center; margin:50px 0;">
+    <h2 style="margin-bottom:10px;">Rate Our Service</h2>
 
-        <div id="stars" style="font-size:32px; cursor:pointer;">
-            ★★★★★
-        </div>
-
-        <p id="rating-msg" style="margin-top:10px; font-size:16px; color:green;"></p>
-
-        <p id="rating-info" style="font-size:14px; margin-top:10px;"></p>
+    <div id="stars" style="font-size:40px; cursor:pointer; display:flex; gap:10px; justify-content:center;">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
     </div>
 
-    <script>
-        const API_URL = "https://script.google.com/macros/s/AKfycbyWL1eQoAiyWGCn-X0Fvx7XruE9bQZRHYFa0GGF3P5hM4sIuDngXAd0SOXkepdOO8ob1Q/exec";
+    <p id="rating-msg" style="font-size:18px; margin-top:10px; color:green;"></p>
+    <p id="rating-info" style="font-size:15px; margin-top:10px; color:#333;"></p>
+</div>
 
-        let selectedRating = 0;
+<script>
+// ⭐ API URL (your script link)
+const API_URL = "https://script.google.com/macros/s/AKfycbzoOHivg2f1Z72XDMQLe388cKRoZP42EcXDKo77DC9pfQqVwYyDz7HSgp3HTbWi6IAWNQ/exec";
 
-        document.getElementById("stars").addEventListener("mouseover", function (e) {
-            if (e.target.innerText === "★") {
-                highlightStars([...this.children].indexOf(e.target) + 1);
-            }
-        });
+let selectedRating = 0;
 
-        document.getElementById("stars").addEventListener("click", function (e) {
-            if (e.target.innerText === "★") {
-                selectedRating = [...this.children].indexOf(e.target) + 1;
-                submitRating(selectedRating);
-            }
-        });
+// ⭐ Make stars clickable
+const stars = document.querySelectorAll(".star");
 
-        function highlightStars(count) {
-            const stars = document.getElementById("stars").children;
-            for (let i = 0; i < stars.length; i++) {
-                stars[i].style.color = i < count ? "gold" : "black";
-            }
-        }
+stars.forEach((star, index) => {
+    star.addEventListener("mouseover", () => {
+        highlightStars(index + 1);
+    });
 
-        function submitRating(rating) {
-            fetch(API_URL, {
-                method: "POST",
-                body: JSON.stringify({ rating })
-            })
-                .then(r => r.json())
-                .then(() => {
-                    document.getElementById("rating-msg").innerText = "Thank you for your rating!";
-                    loadRatings();
-                });
-        }
+    star.addEventListener("click", () => {
+        selectedRating = index + 1;
+        submitRating(selectedRating);
+    });
+});
 
-        function loadRatings() {
-            fetch("https://docs.google.com/spreadsheets/d/1YMfRRrifUQ4XN11QvJcM1A87H0k_uktX9XrmG3but-M/edit?gid=0#gid=0")
-                .then(res => res.text())
-                .then(data => {
-                    const rows = data.split("\n").slice(1);
-                    const ratings = rows
-                        .map(r => parseInt(r.split(",")[0]))
-                        .filter(n => !isNaN(n));
+// ⭐ Highlight effect
+function highlightStars(count){
+    const allStars = document.querySelectorAll(".star");
+    for(let i = 0; i < allStars.length; i++){
+        allStars[i].style.color = i < count ? "gold" : "black";
+    }
+}
 
-                    if (ratings.length > 0) {
-                        const avg = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1);
-                        document.getElementById("rating-info").innerText =
-                            `⭐ ${avg} / 5 — Based on ${ratings.length} ratings`;
-                    }
-                });
-        }
-
+// ⭐ Send rating to Google Sheet
+function submitRating(rating){
+    fetch(API_URL, {
+        method: "POST",
+        body: JSON.stringify({rating})
+    })
+    .then(r => r.json())
+    .then(() => {
+        document.getElementById("rating-msg").innerText = "Thank you for your rating!";
         loadRatings();
-    </script>
+    })
+    .catch(err => {
+        document.getElementById("rating-msg").innerText = "Error saving rating!";
+    });
+}
+
+// ⭐ Load ratings from Google Sheet (average + count)
+function loadRatings(){
+    fetch("https://docs.google.com/spreadsheets/d/1YMfRRrifUQ4XN11QvJcM1A87H0k_uktX9XrmG3but-M/edit?gid=0#gid=0")
+    .then(res => res.text())
+    .then(data => {
+        const rows = data.split("\n").slice(1);
+        const ratings = rows
+            .map(r => parseInt(r.split(",")[0]))
+            .filter(n => !isNaN(n));
+
+        if(ratings.length > 0){
+            const avg = (ratings.reduce((a,b)=>a+b,0) / ratings.length).toFixed(1);
+            document.getElementById("rating-info").innerText =
+                `⭐ ${avg} / 5 — Based on ${ratings.length} ratings`;
+        }
+    });
+}
+
+// Load rating stats on page load
+loadRatings();
+</script>
 
 
 </body>
-
 
 </html>
