@@ -2,9 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta name="description" content="Sadguru Waterproofing — Professional waterproofing services in Lohgaon, Pune. We provide terrace waterproofing, bathroom leakage repair, wall seepage solutions, and long-lasting chemical treatments. Trusted, affordable, and guaranteed results.">
-    <meta name="keywords" content="waterproofing lohgaon, waterproofing services lohgaon, terrace waterproofing lohgaon, bathroom waterproofing lohgaon, leakage repair lohgaon, waterproofing contractor lohgaon, waterproofing company lohgaon, waterproofing in pune lohgaon, best waterproofing service in lohgaon, roof leakage waterproofing lohgaon, wall seepage repair lohgaon, crack filling lohgaon, chemical waterproofing lohgaon">
     <meta charset="UTF-8">
+    <meta name="description"
+        content="Sadguru Waterproofing — Professional waterproofing services in Lohgaon, Pune. We provide terrace waterproofing, bathroom leakage repair, wall seepage solutions, and long-lasting chemical treatments. Trusted, affordable, and guaranteed results.">
+
+    <meta name="keywords"
+        content="waterproofing lohgaon, waterproofing services lohgaon, terrace waterproofing lohgaon, bathroom waterproofing lohgaon, leakage repair lohgaon, waterproofing contractor lohgaon, waterproofing company lohgaon, waterproofing in pune lohgaon, best waterproofing service in lohgaon, roof leakage waterproofing lohgaon, wall seepage repair lohgaon, crack filling lohgaon, chemical waterproofing lohgaon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sadguru WaterProofing</title>
     <link rel="stylesheet" href="style.css">
@@ -149,14 +153,85 @@
         <h1 class="h-primary">📞Contact Us</h1>
         <div id="Contact">
             <ul>
-                <li>📍 Address: <span class="adress"></span></li>
+                <li>📍 Address: <span class="adress">lake View City, lane No.1 adulkar house, wadgoan shinde road
+                        lohgoan</span></li>
                 <li>📞 Phone: <span class="adress">8766899474</span></li>
                 <li>💬 WhatsApp: <span class="adress">8766899474</span></li>
-                <li>🕒 Working Hours: <span class="adress">Mon–Sun, 9 AM – 7 PM </span></li>
+                <li>🕒 Working Hours: <span class="adress">9AM – 10PM </span></li>
             </ul>
         </div>
     </section>
-</body>
 
+    <div id="rating-box" style="text-align:center; margin:40px 0;">
+        <h2>Rate Our Service</h2>
+
+        <div id="stars" style="font-size:32px; cursor:pointer;">
+            ★★★★★
+        </div>
+
+        <p id="rating-msg" style="margin-top:10px; font-size:16px; color:green;"></p>
+
+        <p id="rating-info" style="font-size:14px; margin-top:10px;"></p>
+    </div>
+
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyWL1eQoAiyWGCn-X0Fvx7XruE9bQZRHYFa0GGF3P5hM4sIuDngXAd0SOXkepdOO8ob1Q/exec";
+
+        let selectedRating = 0;
+
+        document.getElementById("stars").addEventListener("mouseover", function (e) {
+            if (e.target.innerText === "★") {
+                highlightStars([...this.children].indexOf(e.target) + 1);
+            }
+        });
+
+        document.getElementById("stars").addEventListener("click", function (e) {
+            if (e.target.innerText === "★") {
+                selectedRating = [...this.children].indexOf(e.target) + 1;
+                submitRating(selectedRating);
+            }
+        });
+
+        function highlightStars(count) {
+            const stars = document.getElementById("stars").children;
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].style.color = i < count ? "gold" : "black";
+            }
+        }
+
+        function submitRating(rating) {
+            fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify({ rating })
+            })
+                .then(r => r.json())
+                .then(() => {
+                    document.getElementById("rating-msg").innerText = "Thank you for your rating!";
+                    loadRatings();
+                });
+        }
+
+        function loadRatings() {
+            fetch("https://docs.google.com/spreadsheets/d/1YMfRRrifUQ4XN11QvJcM1A87H0k_uktX9XrmG3but-M/edit?gid=0#gid=0")
+                .then(res => res.text())
+                .then(data => {
+                    const rows = data.split("\n").slice(1);
+                    const ratings = rows
+                        .map(r => parseInt(r.split(",")[0]))
+                        .filter(n => !isNaN(n));
+
+                    if (ratings.length > 0) {
+                        const avg = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1);
+                        document.getElementById("rating-info").innerText =
+                            `⭐ ${avg} / 5 — Based on ${ratings.length} ratings`;
+                    }
+                });
+        }
+
+        loadRatings();
+    </script>
+
+
+</body>
 
 </html>
