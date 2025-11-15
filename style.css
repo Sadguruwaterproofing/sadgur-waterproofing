@@ -345,7 +345,7 @@ li {
 
     .whatsapp-btn {
         right: 27px;
-        font-size: 8px;
+        font-size: 9px;
         
     }
 
@@ -470,4 +470,5 @@ li {
         max-width: 100%;
         box-sizing: border-box;
     }
+
 }
