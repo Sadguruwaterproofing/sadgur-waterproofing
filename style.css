@@ -320,31 +320,37 @@ li {
 
 
 /* ----------------------- MOBILE RESPONSIVE FIX ----------------------- */
-@media (max-width: 600px) {
+@media (max-width: 844px) {
 
     /* NAVBAR */
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 
     .logo {
         width: 32px;
         height: 32px;
         object-fit: cover;
+        
     }
 
     .experience {
-        font-size: 12px;
-        margin-right: auto;
-       
+        font-size: 8px;
+
     }
 
     .whatsapp-btn {
-        position: static;
-        margin-left: 50px;
-        padding: 6px 12px;
-        font-size: 12px;
+        right: 27px;
+        font-size: 8px;
+        
     }
 
     .logo-container {
-        display: flex;
+        align-items: flex-start;
         gap: 5px;
     }
 
@@ -358,7 +364,7 @@ li {
 
     #h-primary {
         font-size: 20px;
-        
+
     }
 
     .description p {
@@ -430,21 +436,22 @@ li {
 
     .photos {
         padding: 20px;
-        
+
     }
 
     .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
-    gap: 10px;
-    padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 per row */
+        gap: 10px;
+        padding: 10px;
     }
 
-   .photo-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
+    .photo-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
     }
 
 
