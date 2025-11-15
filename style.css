@@ -319,24 +319,6 @@ li {
 }
 
 
-.rating-container {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.stars span {
-    font-size: 35px;
-    cursor: pointer;
-    color: #ccc;
-    transition: 0.3s;
-}
-
-.stars span:hover,
-.stars span.active {
-    color: gold;
-}
-
-
 /* ----------------------- MOBILE RESPONSIVE FIX ----------------------- */
 @media (max-width: 844px) {
 
@@ -501,5 +483,4 @@ li {
         max-width: 100%;
         box-sizing: border-box;
     }
-
 }
