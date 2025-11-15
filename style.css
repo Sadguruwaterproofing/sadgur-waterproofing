@@ -1,0 +1,466 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap) * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(252, 248, 241);
+    box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* space between logo and text */
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.whatsapp-btn {
+    position: absolute;
+    right: 60px;
+    background: #25bc5c;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.experience {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3e3838;
+    cursor: pointer;
+}
+
+#home {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    height: 628px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    background: url(Water.jpg) no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.98;
+}
+
+#h-primary {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    text-shadow: 0 5px 0 rgb(75, 75, 75);
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.description p {
+    margin: 4px;
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(4, 4, 4);
+    font-weight: 400;
+    font-size: 1.2rem;
+    background-color: white;
+    border: 4px solid rgb(255, 255, 255);
+    border-top: 3px solid rgb(60, 194, 252);
+    border-left: 3px solid rgb(64, 198, 255);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.description p:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.highlight {
+    color: red;
+    font-weight: 600;
+    text-shadow: none;
+}
+
+.bx {
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+    padding: 3px;
+    color: rgb(3, 182, 3);
+    font-size: 1.3rem;
+}
+
+#offering {
+    margin-top: 250px;
+    display: flex;
+    margin-top: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#offering .box {
+    border: 2px solid rgba(131, 109, 109, 0.5);
+    border-right: 2px solid rgba(131, 109, 109, 0.2);
+    border-bottom: 2px solid rgba(131, 109, 109, 0.2);
+    padding: 25px;
+    margin: 10px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#offering .box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#offering .box img {
+    height: 156px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+
+}
+
+.h-primary {
+    text-align: center;
+    margin-top: 70px;
+    margin-right: 1200px;
+    margin-bottom: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.h-secondary {
+    text-align: center;
+    background-color: bisque;
+}
+
+.text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(50, 52, 53);
+    text-align: center;
+    justify-items: center;
+}
+
+.glow {
+    color: black;
+    font-weight: 500;
+}
+
+li {
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+.under {
+    color: #3e3838;
+    font-weight: 400;
+}
+
+.box2 {
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 2px solid rgba(16, 118, 185, 0.1);
+    border-bottom: 3px solid rgba(6, 145, 237, 1.1);
+    border-right: 3px solid rgba(6, 145, 237, 1.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgb(0, 136, 255);
+}
+
+.box2:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box3 li {
+    list-style: none;
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    border: 2px solid;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(250, 243, 233);
+    border: 2px solid rgba(16, 118, 185, 0.1);
+    border-bottom: 3px solid rgba(6, 145, 237, 1.1);
+    border-right: 3px solid rgba(6, 145, 237, 1.1);
+    transition: all 0.3s ease;
+}
+
+.box3 li:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box3 {
+    padding-right: 20px;
+
+}
+
+#about {
+    border: 2px solid rgba(16, 118, 185, 0.1);
+    border-bottom: 3px solid rgba(6, 145, 237, 1.1);
+    border-right: 3px solid rgba(6, 145, 237, 1.1);
+    box-shadow: 0 0 2px rgb(6, 194, 231);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(252, 245, 235)
+}
+
+.photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.photos img {
+    border-radius: 20px;
+    width: 200px;
+    height: 150px;
+    border: 2px solid white;
+    border-bottom: 10px solid #01ddff;
+    border-right: 3px solid rgb(3, 221, 255);
+    border-left: 3px solid rgb(3, 221, 255);
+    transition: all 0.3s ease;
+}
+
+.photos img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: none;
+    color: black;
+    justify-content: center;
+    text-align: center;
+    background-color: #e3dbdb;
+    border: 2px solid rgba(129, 134, 137, 0.1);
+    border-bottom: 4px solid rgba(129, 134, 137, 1.1);
+    border-right: 4px solid rgba(129, 134, 137, 1.1);
+    border-radius: 20px;
+    margin: 24px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+.info p:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.line {
+    font-weight: 700;
+}
+
+.adress {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+#Contact {
+    border: 1px solid rgb(0, 170, 255);
+    border-bottom: 3px solid rgba(0, 170, 255, 1.1);
+    border-right: 3px solid rgba(0, 170, 255, 1.1);
+    border-radius: 20px;
+    margin: 20px;
+    transition: all 0.3s ease;
+}
+
+#Contact:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ----------------------- MOBILE RESPONSIVE FIX ----------------------- */
+@media (max-width: 600px) {
+
+    /* NAVBAR */
+
+    .logo {
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+    }
+
+    .experience {
+        font-size: 12px;
+        margin-right: auto;
+       
+    }
+
+    .whatsapp-btn {
+        position: static;
+        margin-left: 50px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .logo-container {
+        display: flex;
+        gap: 5px;
+    }
+
+    /* HOME SECTION */
+    #home {
+        padding: 10px 20px;
+        height: auto;
+        margin-top: 120px;
+        height: 550px;
+    }
+
+    #h-primary {
+        font-size: 20px;
+        
+    }
+
+    .description p {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #services-container {
+        padding-top: 140px;
+    }
+
+    /* OFFERING BOXES */
+    #offering {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    #offering .box {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    #offering .box img {
+        width: 100%;
+        height: auto;
+    }
+
+    .h-primary {
+        margin: 20px 0;
+        margin-right: 0;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    /* SERVICES LIST */
+    .box2 {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .box2 ul li {
+        font-size: 14px;
+    }
+
+    /* WHY CHOOSE US */
+    .box3 li {
+        margin: 10px;
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    /* ABOUT SECTION */
+    #about {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .info p {
+        font-size: 14px;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    /* PHOTOS GRID */
+    .photos img {
+        width: 100%;
+        height: auto;
+    }
+
+    .photos {
+        padding: 20px;
+        
+    }
+
+    .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 10px;
+    padding: 10px;
+    }
+
+   .photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    }
+
+
+    /* CONTACT */
+    #Contact {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #Contact ul li {
+        font-size: 14px;
+    }
+
+    /* GENERAL FIX */
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
